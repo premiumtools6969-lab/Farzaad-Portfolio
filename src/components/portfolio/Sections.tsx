@@ -27,8 +27,8 @@ const aboutFacts = [
 
 export function About() {
   return (
-    <section id="about" className="scroll-mt-24 py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <section id="about" className="scroll-mt-24 py-14 sm:py-20 lg:py-28">
+      <div className="mx-auto w-full min-w-0 max-w-6xl px-4 [overflow-wrap:anywhere] sm:px-6">
         <SectionHeading
           kicker="About Me"
           title={
@@ -38,8 +38,8 @@ export function About() {
           }
         />
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-          <Reveal className="flex flex-col gap-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <div className="mt-7 grid min-w-0 grid-cols-1 items-start gap-6 sm:mt-10 sm:gap-8 lg:mt-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-16">
+          <Reveal className="flex w-full min-w-0 flex-col gap-4 text-base leading-relaxed text-muted-foreground [overflow-wrap:anywhere] sm:gap-5 sm:text-lg">
             <p>
               I am a second-year Civil Engineering student at the Islamic University of Technology (IUT), where I developed technical knowledge of tools like{" "}
               <strong className="font-semibold text-foreground">AutoCAD</strong> and{" "}
@@ -63,18 +63,20 @@ export function About() {
             </p>
           </Reveal>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+          <div className="grid w-full min-w-0 grid-cols-1 content-start gap-3 self-start sm:grid-cols-2 sm:gap-4 lg:grid-cols-1">
             {aboutFacts.map((fact, i) => (
-              <Reveal key={fact.label} delay={i * 90}>
-                <div className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_20px_40px_-24px_var(--forest)]">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-secondary text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+              <Reveal key={fact.label} delay={i * 90} className="min-w-0">
+                <div className="group flex h-full w-full min-w-0 items-start gap-3 rounded-2xl border border-border bg-card p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_20px_40px_-24px_var(--forest)] sm:gap-4 sm:p-5">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-secondary text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground sm:h-11 sm:w-11">
                     <fact.icon className="h-5 w-5" />
                   </span>
-                  <div className="min-w-0">
+                  <div className="min-w-0 flex-1 [overflow-wrap:anywhere]">
                     <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                       {fact.label}
                     </p>
-                    <p className="truncate text-sm font-semibold text-foreground">{fact.value}</p>
+                    <p className="mt-1 whitespace-normal text-sm font-semibold leading-relaxed text-foreground">
+                      {fact.value}
+                    </p>
                   </div>
                 </div>
               </Reveal>
